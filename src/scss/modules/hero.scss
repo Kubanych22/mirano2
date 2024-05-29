@@ -1,0 +1,81 @@
+@use '../variables' as *;
+@use '../media' as *;
+
+.hero {
+  padding: 60px 0;
+
+  @include tablet {
+    padding: 40px 0;
+  }
+
+  @include mobile {
+    padding: 40px 0 73px;
+  }
+
+  &__head-group {
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-family: $second-family;
+    font-weight: 400;
+    @include responsive-font-size(80, 120, 1024, 1440);
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    color: $green;
+
+    @include laptop {
+      @include responsive-font-size(58, 80, 768, 1024);
+    }
+    
+    @include tablet {
+      @include responsive-font-size(40, 58, 320, 768);
+    }
+
+  }
+
+  &__subtitle {
+    font-family: $second-family;
+    font-style: italic;
+    font-weight: 400;
+    @include responsive-font-size(32, 40, 1024, 1440);
+    line-height: 1.3;
+    text-align: right;
+    color: $dark;
+
+    @include laptop {
+      @include responsive-font-size(24, 32, 768, 1024);
+    }
+
+    @include tablet {
+      @include responsive-font-size(18, 24, 320, 768);
+    }
+  }
+
+  &__group-image {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: calc(24 / 1300 * 100%);
+  }
+
+  &__image {
+    object-fit: cover;
+    width: calc(284 / 1300 * 100%);
+    aspect-ratio: 284 / 352;
+
+    &_left {
+      border-radius: 400px 400px 400px 0;
+    }
+
+    &_center {
+      width: calc(680 / 1300 * 100%);
+      aspect-ratio: 680 / 588;
+    }
+
+    &_right {
+      border-radius: 400px 0 400px 400px;
+    }
+  }
+}
